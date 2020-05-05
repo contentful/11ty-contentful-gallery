@@ -11,15 +11,16 @@
 <body>
     <header>
         <nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://www.contentful.com">
-      <img src="https:{{contentful-logo.fields.file.url}}?w=200" alt="Contentful Logo" >
-    </a>
-  </div>
-</nav>
+            <div class="navbar-brand">
+                <a class="navbar-item" href="https://www.contentful.com">
+                    <img src="https:{{contentful-logo.fields.file.url}}?w=200" alt="Contentful Logo">
+                </a>
+            </div>
+            <div class="navbar-end"><a href="/" class='navbar-item'><i class="far fa-images"></i></a></div>
+        </nav>
     </header>
     <main>
-        <section class="hero is-primary is-fullheight">
+        <section class="hero is-info is-bold is-fullheight-with-navbar">
             <div class="hero-body">
                 <div class="container">
                     {% if renderData.title %}
@@ -33,17 +34,15 @@
         </section>
     </main>
 </body>
-
 <footer class="footer">
-  <div class=" has-text-centered">
-    <p>Fork this repo on <a href="https://github.com/contentful/"><i class="fab fa-github is-large"></i></a></p>
-    <p><a href="https://www.contentful.com/developers/">Contentful developer portal</a></p>
-    <p><a href="https://www.contentful.com/events/">Attend our future events</a></p>
-    <p>
-      ©2020 Contentful
-    </p>
-  </div>
+    <div class=" has-text-centered">
+        <p>Fork this repo on <a href="https://github.com/contentful/"><i class="fab fa-github is-large"></i></a></p>
+        <p><a href="https://www.contentful.com/developers/">Contentful developer portal</a></p>
+        <p><a href="https://www.contentful.com/events/">Attend our future events</a></p>
+        <p>
+            ©2020 Contentful
+        </p>
+    </div>
 </footer>
-
 
 </html>

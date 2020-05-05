@@ -1,0 +1,22 @@
+{
+  "name": "11ty-contentful-gallery",
+  "version": "1.0.0",
+  "description": "Contentful photogallery using 11ty.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx eleventy",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shy/11ty-contentful-gallery.git"
+  },
+  "author": "Shy Ruparel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Shy/11ty-contentful-gallery/issues"
+  },
+  "homepage": "https://github.com/Shy/11ty-contentful-gallery#readme",
+  "dependencies": {
+    "contentful": "^7.14.4"
+  }
+}
