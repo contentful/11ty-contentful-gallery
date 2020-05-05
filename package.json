@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "npx eleventy",
+    "watch": "npx eleventy --watch",
+    "serve": "npx eleventy --serve",
+    "debug": "DEBUG=* npx eleventy"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/Shy/11ty-contentful-gallery#readme",
   "dependencies": {
+    "@11ty/eleventy": "^0.10.0",
     "contentful": "^7.14.4"
   }
 }

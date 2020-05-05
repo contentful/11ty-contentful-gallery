@@ -5,12 +5,19 @@ jobs:
   build_deploy:
     runs-on: ubuntu-18.04
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '13.5.0'
+      - name: Install npm packages
+        run: npm ci
       - name: Build
-        uses: TartanLlama/actions-eleventy@v1.1
+        run: npm run build
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v1.1.0
+        uses: peaceiris/actions-gh-pages@v2
         env:
           PUBLISH_DIR: _site
           PUBLISH_BRANCH: gh-pages
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
