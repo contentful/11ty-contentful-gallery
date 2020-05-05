@@ -1,0 +1,31 @@
+---
+pagination:
+    data: contentful-photos
+    size: 1
+    alias: photoSet
+    addAllPagesToCollections: true
+permalink: "{{ photoSet.slug | slug }}/"
+tags: "photoSet"
+layout: layout.liquid
+
+renderData:
+    title: "{{ photoSet.title }}"
+
+---
+
+<div class="columns is-multiline">
+    {%- for photo in photoSet.photos -%}
+    <div class="column is-one-third ">
+        <div class="box">
+            <picture class="image is-3by2">
+                <source srcset="https:{{photo.fields.file.url}}?w=450&h=300&fm=webp&q=80&fit=fill&f=bottom_right" type="image/webp">
+                <source srcset="" https:{{photo.fields.file.url}}?w=450&h=300&fm=jpg&q=80&fit=fill&f=bottom_right" type="image/jpeg">
+                <img src="" https:{{photo.fields.file.url}}?w=450&h=300&fit=fill&f=bottom_right" alt="Photo from {{ photoSet.title }}">
+                <a href="https:{{photo.fields.file.url}}" class="is-overlay"><span class=" icon ">
+                        <i class="fas fa-download is-large has-text-white"></i>
+                    </span></a>
+            </picture>
+        </div>
+    </div>
+    {%- endfor -%}
+</div>

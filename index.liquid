@@ -1,0 +1,29 @@
+---
+permalink: "/"
+layout: layout.liquid
+
+renderData:
+    title: "Contentful Photo Gallery"
+
+---
+
+<div class="columns is-multiline">
+    {%- for photoSet in contentful-photos -%}
+    <div class="column is-one-third ">
+        <div class="box">
+            <p class="title is-4 has-text-dark">{{photoSet.title}}</p>
+            <a href="{{photoSet.slug}}" >
+            <picture class="image is-3by2">
+                <source srcset="https:{{photoSet.coverImage.fields.file.url}}?w=450&h=300&fm=webp&q=80&fit=fill&f=bottom_right" type="image/webp">
+                <source srcset="" https:{{photoSet.coverImage.fields.file.url}}?w=450&h=300&fm=jpg&q=80&fit=fill&f=bottom_right" type="image/jpeg">
+                <img src="" https:{{photoSet.coverImage.fields.file.url}}?w=450&h=300&fit=fill&f=bottom_right" alt="Photo from {{ photoSet.title }}">
+
+            </picture>
+        </a>
+
+        </div>
+    </div>
+    {%- endfor -%}
+</div>
+
+

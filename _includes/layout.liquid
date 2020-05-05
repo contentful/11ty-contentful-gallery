@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang='en'>
+
+<head>
+    {%- assign $title = renderData.title %}
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="https://www.contentful.com">
+      <img src="https:{{contentful-logo.fields.file.url}}?w=200" alt="Contentful Logo" >
+    </a>
+  </div>
+</nav>
+    </header>
+    <main>
+        <section class="hero is-primary is-fullheight">
+            <div class="hero-body">
+                <div class="container">
+                    {% if renderData.title %}
+                    <h1 class="title has-text-centered">
+                        {{renderData.title}}
+                    </h1>
+                    {%endif%}
+                    {{content}}
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+<footer class="footer">
+  <div class=" has-text-centered">
+    <p>Fork this repo on <a href="https://github.com/contentful/"><i class="fab fa-github is-large"></i></a></p>
+    <p><a href="https://www.contentful.com/developers/">Contentful developer portal</a></p>
+    <p><a href="https://www.contentful.com/events/">Attend our future events</a></p>
+    <p>
+      ©2020 Contentful
+    </p>
+  </div>
+</footer>
+
+
+</html>
