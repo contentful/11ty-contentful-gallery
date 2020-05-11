@@ -1,7 +1,7 @@
 <h1>11ty-contentful-gallery</h1>
 <p>An example photo Gallery made using <a href="https://www.contentful.com/">Contentful</a> and <a href="https://www.11ty.dev/">11ty</a>. It's deployed via GitHub Actions onto GitHub Pages.</p>
 <h1>What is this about?</h1>
-<p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed, this triggers a build process that utilizes (GitHub Actions for GitHub Pages)[https://github.com/peaceiris/actions-gh-pages] to build and deploy the website.</p>
+<p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed, this triggers a build process that utilizes <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> to build and deploy the website.</p>
 <h1>Getting started</h1>
 <h3>Requirements</h3>
 <p>To deploy this project you'll need accounts for the following services:</p>
@@ -14,12 +14,12 @@
 <li>Fork and clone this repository</li>
 </ul>
 <h4>The Contentful part (optional)</h4>
-<p>This repo currently uses an already existing Contentful space. If you'd like to replace this space with your own, so you can modify the content, you're welcome to do so.</p>
+<p>This repo currently uses an existing Contentful space. If you'd like to replace this space with your own, so you can modify the content, you're welcome to do so.</p>
 <ul>
 <li>
-<p>Create a new space using the Contentful CLI</p>
+<p>Create a new space using the <a href="https://github.com/contentful/contentful-cli">Contentful CLI</a></p>
 <ul>
-<li><code>$ contentful space create --name &quot;continuous delivery example&quot;</code></li>
+<li><code>$ contentful space create --name &quot;11ty-gallery&quot;</code></li>
 </ul>
 </li>
 <li>
@@ -36,8 +36,35 @@
 </li>
 <li>
 <p>Update the space id and access token in <a href="_data/contentful-logo.js">contentful-logo.js</a> and <a href="_data/contentful-photos.js">contentful-photos.js</a> to use the api keys from your newly created space.</p>
+</li>
+<li>
+<p>On Contentful we have 2 Content Types. <code>Brand</code> and <code>photoSets</code>.</p>
+<ul>
+<li><code>Brand</code> is used to set the logo at the top of each page and name the website. You should only have one instance of this content type.</li>
+<li><code>photoSet</code> is where each set of photos lives. You can create as many of these, with as many photos as you want.</li>
+</ul>
+</li>
+</ul>
+<h4>Build the site</h4>
+<ul>
+<li>On the command line, navigate to your cloned repo and install your dependencies with <code>npm install</code>.</li>
+<li>Run Eleventy with <code>npx eleventy --serve</code>. We're using the <code>--serve</code> argument so eleventy will host the site for us.</li>
+<li>Navigiate to localhost:8080 to view the site.</li>
+</ul>
 <h4>The GitHub part (optional)</h4>
-<p>Since we're using GitHub Actions, we'll be able to use the existing <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> repo. On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add a SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. This repo already contains a <a href=".github/workflows/eleventy_build.yml">functional build script</a> that will trigger when you make a commit.</p>
+<p>Since we're using GitHub Actions, we'll be able to use the existing <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> repo. On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add an SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. This repo already contains a <a href=".github/workflows/eleventy_build.yml">functional build script</a> that will trigger when you make a commit.</p>
+<h1>Implementation Notes</h1>
+<ul>
+<li>This example uses one layout:
+<ul>
+<li><code>_includes\layout.liquid</code>: the top level HTML structure</li>
+</ul>
+</li>
+<li>This example uses <a href="https://www.11ty.dev/docs/languages/liquid/">liquid</a> templates to generate pages.
+<ul>
+<li><code>index.liquid</code> generates the homepage</li>
+<li><code>photoSet-pages.liquid</code> takes a look for all content on Contentful of type <code>photoSet</code>. It creates a directory for each photoSet.</li>
+</ul>
 </li>
 </ul>
 <h1>License</h1>
