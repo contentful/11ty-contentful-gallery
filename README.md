@@ -34,11 +34,11 @@ This repo currently uses an already existing Contentful space. If you'd like to 
   * `$ contentful space use` (this will present you with a list of all available spaces – choose the one you just created)
 * Import the provided content model (`./import/export.json`) into the newly created space
   * `$ contentful space import --content-file ./import/export.json`
-* Update the space id and access token in (contentful-logo.js)[_data/contentful-logo.js] and (contentful-photos.js)[_data/contentful-photos.js] to use the api keys from your newly created space.
+* Update the space id and access token in [contentful-logo.js](_data/contentful-logo.js) and [contentful-photos.js](_data/contentful-photos.js) to use the api keys from your newly created space.
 
   #### The GitHub part (optional)
 
-  Since we're using GitHub Actions, we'll be able to use the existing [GitHub Actions for GitHub Pages)[https://github.com/peaceiris/actions-gh-pages) repo. On your forked repo you'll need to [add a SSH Deploy key so GitHub actions will be able to deploy to GitHub pages](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key). This repo already contains a (functional build script)[.github/workflows/eleventy_build.yml] that will trigger when you make a commit.
+  Since we're using GitHub Actions, we'll be able to use the existing [GitHub Actions for GitHub Pages)[https://github.com/peaceiris/actions-gh-pages) repo. On your forked repo you'll need to [add a SSH Deploy key so GitHub actions will be able to deploy to GitHub pages](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key). This repo already contains a [functional build script](.github/workflows/eleventy_build.yml) that will trigger when you make a commit.
 
 License
 =======
