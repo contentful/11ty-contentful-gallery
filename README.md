@@ -38,7 +38,7 @@ This repo currently uses an already existing Contentful space. If you'd like to 
 
   #### The GitHub part (optional)
 
-  Since we're using GitHub Actions, we'll be able to use the existing [GitHub Actions for GitHub Pages)[https://github.com/peaceiris/actions-gh-pages) repo. On your forked repo you'll need to [add a SSH Deploy key so GitHub actions will be able to deploy to GitHub pages](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key). This repo already contains a [functional build script](.github/workflows/eleventy_build.yml) that will trigger when you make a commit.
+  Since we're using GitHub Actions, we'll be able to use the existing [GitHub Actions for GitHub Pages](https://github.com/peaceiris/actions-gh-pages) repo. On your forked repo you'll need to [add a SSH Deploy key so GitHub actions will be able to deploy to GitHub pages](https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key). This repo already contains a [functional build script](.github/workflows/eleventy_build.yml) that will trigger when you make a commit.
 
 License
 =======
