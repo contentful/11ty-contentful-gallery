@@ -1,4 +1,44 @@
 <h1>11ty-contentful-gallery</h1>
 <p>An example photo Gallery made using <a href="https://www.contentful.com/">Contentful</a> and <a href="https://www.11ty.dev/">11ty</a>. It's deployed via GitHub Actions onto GitHub Pages.</p>
 <h1>What is this about?</h1>
-<p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> which take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling.</p>
+<p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed, this triggers a build process that utilizes (GitHub Actions for GitHub Pages)[https://github.com/peaceiris/actions-gh-pages] to build and deploy the website.</p>
+<h1>Getting started</h1>
+<h3>Requirements</h3>
+<p>To deploy this project you'll need accounts for the following services:</p>
+<ul>
+<li><a href="https://www.contentful.com">Contentful</a></li>
+<li>GitHub</li>
+</ul>
+<h3>Setup</h3>
+<ul>
+<li>Fork and clone this repository</li>
+</ul>
+<h4>The Contentful part (optional)</h4>
+<p>This repo currently uses an already existing Contentful space. If you'd like to replace this space with your own, so you can modify the content, you're welcome to do so.</p>
+<ul>
+<li>
+<p>Create a new space using the Contentful CLI</p>
+<ul>
+<li><code>$ contentful space create --name &quot;continuous delivery example&quot;</code></li>
+</ul>
+</li>
+<li>
+<p>Set the newly created space as default space for all further CLI operations</p>
+<ul>
+<li><code>$ contentful space use</code> (this will present you with a list of all available spaces – choose the one you just created)</li>
+</ul>
+</li>
+<li>
+<p>Import the provided content model (<code>./import/export.json</code>) into the newly created space</p>
+<ul>
+<li><code>$ contentful space import --content-file ./import/export.json</code></li>
+</ul>
+</li>
+<li>
+<p>Update the space id and access token in (contentful-logo.js)[_data/contentful-logo.js] and (contentful-photos.js)[_data/contentful-photos.js] to use the api keys from your newly created space.</p>
+<h4>The GitHub part (optional)</h4>
+<p>Since we're using GitHub Actions, we'll be able to use the existing [GitHub Actions for GitHub Pages)[https://github.com/peaceiris/actions-gh-pages) repo. On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add a SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. This repo already contains a (functional build script)[.github/workflows/eleventy_build.yml] that will trigger when you make a commit.</p>
+</li>
+</ul>
+<h1>License</h1>
+<p>Copyright (c) 2020 Contentful GmbH. Code released under the MIT license. See <a href="LICENSE">LICENSE</a> for further details.</p>
