@@ -1,5 +1,7 @@
-name: Eleventy Build on Commit
-on: [push]
+name: Eleventy Build on Publish Event
+on:
+    repository_dispatch:
+        types: [publish-event]
 
 jobs:
   build_deploy:
@@ -21,4 +23,3 @@ jobs:
           PUBLISH_DIR: _site
           PUBLISH_BRANCH: gh-pages
           ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-
