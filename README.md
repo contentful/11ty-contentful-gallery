@@ -4,11 +4,14 @@
 
 An example photo Gallery made using [Contentful](https://www.contentful.com/) and [11ty](https://www.11ty.dev/). It's deployed via GitHub Actions onto GitHub Pages.
 
+![Screenshot of Front Page](images/front-page.png)
 
 What is this about?
 =====
 
 This example contains [11ty Javascript Data Files](https://www.11ty.dev/docs/data-js/) that take Contentful provided content to build a photo gallery. The front end utilizes [Bulma](https://bulma.io/) for layout and styling. When code is committed, this triggers a build process that utilizes [GitHub Actions for GitHub Pages](https://github.com/peaceiris/actions-gh-pages) to build and deploy the website.
+
+![Screenshot of Photo Page](images/photo-page.png)
 
 
 Getting started
@@ -35,7 +38,7 @@ This repo currently uses an existing Contentful space. If you'd like to replace 
   * `$ contentful space use` (this will present you with a list of all available spaces – choose the one you just created)
 * Import the provided content model (`./import/export.json`) into the newly created space
   * `$ contentful space import --content-file ./import/export.json`
-* Update the space id and access token in [contentful-logo.js](_data/contentful-logo.js) and [contentful-photos.js](_data/contentful-photos.js) to use the api keys from your newly created space.
+* Update the space id and access token in [contentful-brand.js](_data/contentful-brand.js) and [contentful-photos.js](_data/contentful-photos.js) to use the api keys from your newly created space.
 
 * On Contentful we have 2 Content Types. `Brand` and `photoSets`.
   * `Brand` is used to set the logo at the top of each page and name the website. You should only have one instance of this content type.

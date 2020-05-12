@@ -21,6 +21,7 @@
   "homepage": "https://github.com/Shy/11ty-contentful-gallery#readme",
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "contentful": "^7.14.4"
+    "contentful": "^7.14.4",
+    "dotenv": "^8.2.0"
   }
 }
