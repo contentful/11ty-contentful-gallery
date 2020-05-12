@@ -125,8 +125,27 @@ The import was successful.
 #### Build the site
 
 * On the command line, navigate to your cloned repo and install your dependencies with `npm install`.
-* Run Eleventy with `npx eleventy --serve`. We're using the `--serve` argument so eleventy will host the site for us.
-* Navigiate to localhost:8080 to view the site.
+* Run Eleventy with `npx eleventy --serve`. We're using the `--serve` argument so eleventy will host the site for us. Navigiate to localhost:8080 (or whatever port 11ty provides you if 8080 is already in use) to view the site.
+```console
+$ npx eleventy --serve
+Writing _site/README/index.html from ./README.md.
+Writing _site/index.html from ./index.liquid.
+Writing _site/cats-of-contentful/index.html from ./photoSet-pages.liquid.
+Writing _site/ice-cream-social-2019/index.html from ./photoSet-pages.liquid.
+Benchmark (Data): `./_data/contentful-brand.js` took 271ms (18.5%)
+Benchmark (Data): `./_data/contentful-photos.js` took 224ms (15.3%)
+Wrote 4 files in 1.21 seconds (v0.10.0)
+Watching…
+[Browsersync] Access URLs:
+ --------------------------------------
+       Local: http://localhost:8080
+    External: http://192.168.1.137:8080
+ --------------------------------------
+          UI: http://localhost:3001
+ UI External: http://localhost:3001
+ --------------------------------------
+[Browsersync] Serving files from: _site
+```
 
 #### The GitHub part (optional)
 
