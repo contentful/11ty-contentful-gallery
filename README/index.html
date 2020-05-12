@@ -1,9 +1,9 @@
 <h1>11ty-contentful-gallery</h1>
 <p>An example photo Gallery made using <a href="https://www.contentful.com/">Contentful</a> and <a href="https://www.11ty.dev/">11ty</a>. It's deployed via GitHub Actions onto GitHub Pages.</p>
-<p><img src="images/front-page.png" alt="Screenshot of Front Page"></p>
+<p><img src="images/front_page.png" alt="Screenshot of Front Page"></p>
 <h1>What is this about?</h1>
 <p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed, this triggers a build process that utilizes <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> to build and deploy the website.</p>
-<p><img src="images/photo-page.png" alt="Screenshot of Photo Page"></p>
+<p><img src="images/photo_page.png" alt="Screenshot of Photo Page"></p>
 <h1>Getting started</h1>
 <h3>Requirements</h3>
 <p>To deploy this project you'll need accounts for the following services:</p>
@@ -37,7 +37,7 @@
 </ul>
 </li>
 <li>
-<p>Update the space id and access token in <a href="_data/contentful-brand.js">contentful-brand.js</a> and <a href="_data/contentful-photos.js">contentful-photos.js</a> to use the api keys from your newly created space.</p>
+<p>Update the space id and access token in <a href=".env">.env</a>to use the api keys from your newly created space.</p>
 </li>
 <li>
 <p>On Contentful we have 2 Content Types. <code>Brand</code> and <code>photoSets</code>.</p>
