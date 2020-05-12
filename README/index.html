@@ -119,9 +119,27 @@ The import was successful.
 <h4>Build the site</h4>
 <ul>
 <li>On the command line, navigate to your cloned repo and install your dependencies with <code>npm install</code>.</li>
-<li>Run Eleventy with <code>npx eleventy --serve</code>. We're using the <code>--serve</code> argument so eleventy will host the site for us.</li>
-<li>Navigiate to localhost:8080 to view the site.</li>
+<li>Run Eleventy with <code>npx eleventy --serve</code>. We're using the <code>--serve</code> argument so eleventy will host the site for us. Navigiate to localhost:8080 (or whatever port 11ty provides you if 8080 is already in use) to view the site.</li>
 </ul>
+<pre><code class="language-console">$ npx eleventy --serve
+Writing _site/README/index.html from ./README.md.
+Writing _site/index.html from ./index.liquid.
+Writing _site/cats-of-contentful/index.html from ./photoSet-pages.liquid.
+Writing _site/ice-cream-social-2019/index.html from ./photoSet-pages.liquid.
+Benchmark (Data): `./_data/contentful-brand.js` took 271ms (18.5%)
+Benchmark (Data): `./_data/contentful-photos.js` took 224ms (15.3%)
+Wrote 4 files in 1.21 seconds (v0.10.0)
+Watching…
+[Browsersync] Access URLs:
+ --------------------------------------
+       Local: http://localhost:8080
+    External: http://192.168.1.137:8080
+ --------------------------------------
+          UI: http://localhost:3001
+ UI External: http://localhost:3001
+ --------------------------------------
+[Browsersync] Serving files from: _site
+</code></pre>
 <h4>The GitHub part (optional)</h4>
 <p>Since we're using GitHub Actions, we'll be able to use the existing <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> repo. On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add an SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. You'll also need to add the environment variables for Contentful.</p>
 <p><img src="images/github_secrets.png" alt="Screenshot of GitHub Secrets Page"></p>
