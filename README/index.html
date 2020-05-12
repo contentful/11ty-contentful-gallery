@@ -1,5 +1,5 @@
 <h1>11ty-contentful-gallery</h1>
-<p>An example photo Gallery made using <a href="https://www.contentful.com/">Contentful</a> and <a href="https://www.11ty.dev/">11ty</a>. It's deployed via GitHub Actions onto GitHub Pages.</p>
+<p>An example photo gallery made using <a href="https://www.contentful.com/">Contentful</a> and <a href="https://www.11ty.dev/">11ty</a>. It's deployed via GitHub Actions onto GitHub Pages.</p>
 <p><img src="images/front_page.png" alt="Screenshot of Front Page"></p>
 <h1>What is this about?</h1>
 <p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed, this triggers a build process that utilizes <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> to build and deploy the website.</p>
@@ -18,33 +18,102 @@
 <h4>The Contentful part (optional)</h4>
 <p>This repo currently uses an existing Contentful space. If you'd like to replace this space with your own, so you can modify the content, you're welcome to do so.</p>
 <ul>
-<li>
-<p>Create a new space using the <a href="https://github.com/contentful/contentful-cli">Contentful CLI</a></p>
+<li>Create a new space using the <a href="https://github.com/contentful/contentful-cli">Contentful CLI</a></li>
+</ul>
+<pre><code class="language-console">$ contentful space create --name &quot;11ty-gallery&quot;
+? Do you want to confirm the space creation? Yes
+Your user account is a member of multiple organizations. Please select the organization you would like to add your Space to.
+? Please select an organization: Shy's DevRel Playground (orgid)
+✨  Successfully created space 11ty-gallery (rea8ci0yln66)
+</code></pre>
 <ul>
-<li><code>$ contentful space create --name &quot;11ty-gallery&quot;</code></li>
+<li>Set the newly created space as default space for all further CLI operations. You'll be presented with a list of all available spaces – choose the one you just created.</li>
+</ul>
+<pre><code class="language-console">$ contentful space use
+? Please select a space: 11ty-photo-gallery (rea8ci0yln66)
+Now using the 'master' Environment of Space 11ty-photo-gallery (rea8ci0yln66) when the `--environment-id` option is missing.
+</code></pre>
+<ul>
+<li>Import the provided content model (<code>./import/export-content-models-only.json</code>) into the newly created space.
+<ul>
+<li>If you'd prefer to import a version with content you can use <code>./import/export.json</code>. This will take longer given that it includes many assets from our past events.</li>
 </ul>
 </li>
-<li>
-<p>Set the newly created space as default space for all further CLI operations</p>
-<ul>
-<li><code>$ contentful space use</code> (this will present you with a list of all available spaces – choose the one you just created)</li>
 </ul>
-</li>
-<li>
-<p>Import the provided content model (<code>./import/export.json</code>) into the newly created space</p>
+<pre><code class="language-console">$ contentful space import --content-file import/export-content-models-only.json
+
+┌──────────────────────────────────────────────────┐
+│ The following entities are going to be imported: │
+├─────────────────────────────────┬────────────────┤
+│ Content Types                   │ 2              │
+├─────────────────────────────────┼────────────────┤
+│ Editor Interfaces               │ 2              │
+├─────────────────────────────────┼────────────────┤
+│ Locales                         │ 1              │
+├─────────────────────────────────┼────────────────┤
+│ Webhooks                        │ 0              │
+├─────────────────────────────────┼────────────────┤
+│ Entries                         │ 0              │
+├─────────────────────────────────┼────────────────┤
+│ Assets                          │ 0              │
+└─────────────────────────────────┴────────────────┘
+ ✔ Validating content-file
+ ✔ Initialize client (1s)
+ ✔ Checking if destination space already has any content and retrieving it (1s)
+ ✔ Apply transformations to source data (1s)
+ ✔ Push content to destination space
+   ✔ Connecting to space (1s)
+   ✔ Importing Locales (1s)
+   ✔ Importing Content Types (4s)
+   ✔ Publishing Content Types (2s)
+   ✔ Importing Editor Interfaces (1s)
+   ✔ Importing Assets (4s)
+   ✔ Publishing Assets (0s)
+   ✔ Archiving Assets (1s)
+   ✔ Importing Content Entries (4s)
+   ✔ Publishing Content Entries (1s)
+   ✔ Archiving Entries (0s)
+   ✔ Creating Web Hooks (0s)
+Finished importing all data
+┌───────────────────────┐
+│ Imported entities     │
+├───────────────────┬───┤
+│ Locales           │ 1 │
+├───────────────────┼───┤
+│ Content Types     │ 2 │
+├───────────────────┼───┤
+│ Editor Interfaces │ 2 │
+├───────────────────┼───┤
+│ Assets            │ 0 │
+├───────────────────┼───┤
+│ Published Assets  │ 0 │
+├───────────────────┼───┤
+│ Archived Assets   │ 0 │
+├───────────────────┼───┤
+│ Entries           │ 0 │
+├───────────────────┼───┤
+│ Published Entries │ 0 │
+├───────────────────┼───┤
+│ Archived Entries  │ 0 │
+├───────────────────┼───┤
+│ Webhooks          │ 0 │
+└───────────────────┴───┘
+The import took a few seconds (13s)
+No errors or warnings occurred
+The import was successful.
+</code></pre>
 <ul>
-<li><code>$ contentful space import --content-file ./import/export.json</code></li>
-</ul>
-</li>
-<li>
-<p>Update the space id and access token in <a href=".env">.env</a>to use the api keys from your newly created space.</p>
-</li>
 <li>
 <p>On Contentful we have 2 Content Types. <code>Brand</code> and <code>photoSets</code>.</p>
 <ul>
-<li><code>Brand</code> is used to set the logo at the top of each page and name the website. You should only have one instance of this content type.</li>
-<li><code>photoSet</code> is where each set of photos lives. You can create as many of these, with as many photos as you want.</li>
+<li><code>Brand</code> is used to set the logo at the top of each page and name the website. You should only have one instance of this content type. For this example go ahead and create that now.</li>
+<li><img src="images/brand.png" alt="Screenshot of GitHub Secrets Page"></li>
+<li><code>photoSet</code> is where each set of photos lives. You can create as many of these, with as many photos as you want. For this example create at least one.</li>
+<li><img src="images/photoSet.png" alt="Screenshot of GitHub Secrets Page"></li>
 </ul>
+</li>
+<li>
+<p>Update the space id and access token in <a href=".env">.env</a> to use the api keys from your newly created space.</p>
 </li>
 </ul>
 <h4>Build the site</h4>
@@ -54,7 +123,9 @@
 <li>Navigiate to localhost:8080 to view the site.</li>
 </ul>
 <h4>The GitHub part (optional)</h4>
-<p>Since we're using GitHub Actions, we'll be able to use the existing <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> repo. On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add an SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. This repo already contains a <a href=".github/workflows/eleventy_build.yml">functional build script</a> that will trigger when you make a commit.</p>
+<p>Since we're using GitHub Actions, we'll be able to use the existing <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> repo. On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add an SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. You'll also need to add the environment variables for Contentful.</p>
+<p><img src="images/github_secrets.png" alt="Screenshot of GitHub Secrets Page"></p>
+<p>This repo already contains a <a href=".github/workflows/eleventy_build.yml">functional build script</a> that will trigger when you make a commit.</p>
 <h1>Implementation Notes</h1>
 <ul>
 <li>This example uses one layout:
