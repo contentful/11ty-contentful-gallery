@@ -143,7 +143,7 @@ Watching…
 <h4>The GitHub part (optional)</h4>
 <p>Since we're using GitHub Actions, we'll be able to use the existing <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> repo. On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add an SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. You'll also need to add the environment variables for Contentful.</p>
 <p><img src="images/github_secrets.png" alt="Screenshot of GitHub Secrets Page"></p>
-<p>This repo already contains a <a href=".github/workflows/eleventy_build.yml">functional build script</a> that will trigger when you make a commit.</p>
+<p>This repo contains a build script that will trigger when you make a <a href=".github/workflows/push_build.yml">push</a> and one that can be triggered <a href=".github/workflows/contentful_build.yml">via a webhook from Contentful</a>.</p>
 <h1>Implementation Notes</h1>
 <ul>
 <li>This example uses one layout:
