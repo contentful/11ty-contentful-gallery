@@ -1,4 +1,4 @@
-name: Eleventy Build on Commit
+name: Eleventy Build on Push
 on: [push]
 
 jobs:

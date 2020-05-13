@@ -153,7 +153,9 @@ Since we're using GitHub Actions, we'll be able to use the existing [GitHub Acti
 
 ![Screenshot of GitHub Secrets Page](images/github_secrets.png)
 
-This repo already contains a [functional build script](.github/workflows/eleventy_build.yml) that will trigger when you make a commit.
+This repo contains a build script that will trigger when you make a [push](.github/workflows/push_build.yml) and one that can be triggered [via a webhook from Contentful](.github/workflows/contentful_build.yml).
+
+
 
 Implementation Notes
 =======
