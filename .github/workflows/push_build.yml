@@ -1,5 +1,5 @@
 name: Eleventy Build on Push
-on: [push, pull_request]
+on:
   push:
     branches:
       - master
