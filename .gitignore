@@ -16,6 +16,3 @@ api-docs/
 _site/
 
 .DS_Store
-
-# Ignore env files
-.env
