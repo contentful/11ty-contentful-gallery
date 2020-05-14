@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shy/11ty-contentful-gallery.git"
+    "url": "git+https://github.com/contentful/11ty-contentful-gallery.git"
   },
   "author": "Shy Ruparel",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Shy/11ty-contentful-gallery/issues"
+    "url": "https://github.com/contentful/11ty-contentful-gallery/issues"
   },
-  "homepage": "https://github.com/Shy/11ty-contentful-gallery#readme",
+  "homepage": "https://github.com/contentful/11ty-contentful-gallery#readme",
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
     "contentful": "^7.14.4",
