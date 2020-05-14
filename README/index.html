@@ -1,8 +1,8 @@
 <h1>11ty-contentful-gallery</h1>
-<p>An example photo gallery made using <a href="https://www.contentful.com/">Contentful</a> and <a href="https://www.11ty.dev/">11ty</a>. It's deployed via GitHub Actions onto GitHub Pages.</p>
+<p>An example photo gallery made using <a href="https://www.contentful.com/">Contentful</a> and <a href="https://www.11ty.dev/">11ty</a>. It's automatically deployed via GitHub Actions and then hosted by GitHub Pages. Data lives in Contentful, code lives with GitHub, and that's all the services you need to deploy and host a static site.</p>
 <p><img src="images/front_page.png" alt="Screenshot of Front Page"></p>
 <h1>What is this about?</h1>
-<p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed, this triggers a build process that utilizes <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> to build and deploy the website.</p>
+<p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed or content is published, a build process is triggered that utilizes <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> to build and deploy the website.</p>
 <p><img src="images/photo_page.png" alt="Screenshot of Photo Page"></p>
 <h1>Getting started</h1>
 <h3>Requirements</h3>
@@ -119,7 +119,7 @@ The import was successful.
 <h4>Build the site</h4>
 <ul>
 <li>On the command line, navigate to your cloned repo and install your dependencies with <code>npm install</code>.</li>
-<li>Run Eleventy with <code>npx eleventy --serve</code>. We're using the <code>--serve</code> argument so eleventy will host the site for us. Navigiate to localhost:8080 (or whatever port 11ty provides you if 8080 is already in use) to view the site.</li>
+<li>Run Eleventy with <code>npx eleventy --serve</code>. We're using the <code>--serve</code> argument so eleventy will host the site for us. Navigiate to <a href="http://localhost:8080">localhost:8080</a> (or whatever port 11ty provides you if 8080 is already in use) to view the site.</li>
 </ul>
 <pre><code class="language-console">$ npx eleventy --serve
 Writing _site/README/index.html from ./README.md.
