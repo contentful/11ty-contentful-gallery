@@ -1,4 +1,4 @@
-name: Eleventy Build on Publish Event
+name: Eleventy Build on Contentful Publish Event
 on:
     repository_dispatch:
         types: [publish-event]

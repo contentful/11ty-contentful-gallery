@@ -1,5 +1,11 @@
-name: Eleventy Build on Commit
-on: [push]
+name: Eleventy Build on Push
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
 
 jobs:
   build_deploy:
