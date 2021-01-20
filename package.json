@@ -21,7 +21,7 @@
   "homepage": "https://github.com/contentful/11ty-contentful-gallery#readme",
   "dependencies": {
     "@11ty/eleventy": "^0.10.0",
-    "contentful": "^7.14.4",
+    "contentful": "^8.1.7",
     "dotenv": "^8.2.0"
   }
 }
