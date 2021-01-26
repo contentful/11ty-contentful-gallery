@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: "12.x"
 
       - name: Cache dependencies
         uses: actions/cache@v1
@@ -28,6 +28,15 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+
+      - name: Audit live URL
+        uses: jakejarvis/lighthouse-action@master
+
+      - name: Upload results as an artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: report
+          path: "./report"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
