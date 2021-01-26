@@ -1,0 +1,13 @@
+name: Dependbot Action
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  dependbotCheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dependbot checkout
+        if: github.actor != 'dependbot[bot]'
+        run: exit 1
