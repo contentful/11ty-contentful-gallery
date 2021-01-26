@@ -29,18 +29,19 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-      - name: Audit live URL
-        uses: jakejarvis/lighthouse-action@master
-
-      - name: Upload results as an artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: report
-          path: "./report"
-
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
           publish_dir: _site
           cname: gallery.contentful.com
+
+      - name: Audit live URL
+        uses: jakejarvis/lighthouse-action@master
+        with:
+          url: "https://gallery.contentful.com/ice-cream-social-2019/"
+      - name: Upload results as an artifact
+        uses: actions/upload-artifact@master
+        with:
+          name: report
+          path: "./report"
