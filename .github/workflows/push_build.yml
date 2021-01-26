@@ -36,12 +36,12 @@ jobs:
           publish_dir: _site
           cname: gallery.contentful.com
 
-      - name: Audit live URL
-        uses: jakejarvis/lighthouse-action@master
+      - name: Audit URLs using Lighthouse
+        uses: treosh/lighthouse-ci-action@v3
         with:
-          url: "https://gallery.contentful.com/ice-cream-social-2019/"
-      - name: Upload results as an artifact
-        uses: actions/upload-artifact@master
-        with:
-          name: report
-          path: "./report"
+          urls: |
+            https://gallery.contentful.com
+            https://gallery.contentful.com/ice-cream-social-2019/
+          budgetPath: ./budget.json # test performance budgets
+          uploadArtifacts: true # save results as an action artifacts
+          temporaryPublicStorage: true # upload lighthouse report to the temporary storage
