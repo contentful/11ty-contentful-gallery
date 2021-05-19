@@ -17,20 +17,26 @@ This example contains [11ty Javascript Data Files](https://www.11ty.dev/docs/dat
 Getting started
 =====
 
-### Requirements
+## Requirements
 
 To deploy this project you'll need accounts for the following services:
 
 - [Contentful](https://www.contentful.com)
 - GitHub
 
-### Setup
+## Setup
 
 * Fork and clone this repository
 
-#### The Contentful part (optional)
+### The Contentful part (optional)
 
 This repo currently uses an existing Contentful space. If you'd like to replace this space with your own, so you can modify the content, you're welcome to do so.
+
+#### Import Via ContentModel.io (Content Models only)
+
+Head to [ContentModel.io/content-models/aC6axPMOxGM](https://contentmodel.io/content-models/aC6axPMOxGM) for an export of the Content Model used in this example. You can click import into Contentful and then follow the instructions on the website to import it into your Contentful Space. You'll need to head into Contentful to create Content for this example. 
+
+#### Import Via the Contentful CLI (Content or Content Models)
 
 * Create a new space using the [Contentful CLI](https://github.com/contentful/contentful-cli)
 
@@ -113,6 +119,7 @@ The import took a few seconds (13s)
 No errors or warnings occurred
 The import was successful.
 ```
+#### The Content Model
 
 * On Contentful we have 2 Content Types. `Brand` and `photoSets`.
   * `Brand` is used to set the logo at the top of each page and name the website. You should only have one instance of this content type. For this example go ahead and create that now.
@@ -122,7 +129,7 @@ The import was successful.
 
 * Update the space id and access token in [.env](.env) to use the api keys from your newly created space.
 
-#### Build the site
+### Build the site
 
 * On the command line, navigate to your cloned repo and install your dependencies with `npm install`.
 * Run Eleventy with `npx eleventy --serve`. We're using the `--serve` argument so eleventy will host the site for us. Navigiate to [localhost:8080](http://localhost:8080) (or whatever port 11ty provides you if 8080 is already in use) to view the site.
@@ -147,7 +154,7 @@ Watching…
 [Browsersync] Serving files from: _site
 ```
 
-#### The GitHub part (optional)
+### The GitHub part (optional)
 
 Since we're using GitHub Actions, we'll be able to use the existing [GitHub Actions for GitHub Pages](https://github.com/peaceiris/actions-gh-pages) repo. This repo contains a build script that will trigger when you make a [push](.github/workflows/push_build.yml) and one that can be triggered [via a webhook from Contentful](.github/workflows/contentful_build.yml). This build will run eleventy and then publish your site to the `gh_pages` branch of your repo. You'll need to adjust or delete the final cname line (`cname: gallery.contentful.com`) in both build scripts or it'll cause a 404 with GitHub Pages. 
 
