@@ -5,18 +5,21 @@
 <p>This example contains <a href="https://www.11ty.dev/docs/data-js/">11ty Javascript Data Files</a> that take Contentful provided content to build a photo gallery. The front end utilizes <a href="https://bulma.io/">Bulma</a> for layout and styling. When code is committed or content is published, a build process is triggered that utilizes <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> to build and deploy the website.</p>
 <p><img src="images/photo_page.png" alt="Screenshot of Photo Page"></p>
 <h1>Getting started</h1>
-<h3>Requirements</h3>
+<h2>Requirements</h2>
 <p>To deploy this project you'll need accounts for the following services:</p>
 <ul>
 <li><a href="https://www.contentful.com">Contentful</a></li>
 <li>GitHub</li>
 </ul>
-<h3>Setup</h3>
+<h2>Setup</h2>
 <ul>
 <li>Fork and clone this repository</li>
 </ul>
-<h4>The Contentful part (optional)</h4>
+<h3>The Contentful part (optional)</h3>
 <p>This repo currently uses an existing Contentful space. If you'd like to replace this space with your own, so you can modify the content, you're welcome to do so.</p>
+<h4>Import Via ContentModel.io (Content Models only)</h4>
+<p>Head to <a href="https://contentmodel.io/content-models/aC6axPMOxGM">ContentModel.io/content-models/aC6axPMOxGM</a> for an export of the Content Model used in this example. You can click import into Contentful and then follow the instructions on the website to import it into your Contentful Space. You'll need to head into Contentful to create Content for this example.</p>
+<h4>Import Via the Contentful CLI (Content or Content Models)</h4>
 <ul>
 <li>Create a new space using the <a href="https://github.com/contentful/contentful-cli">Contentful CLI</a></li>
 </ul>
@@ -102,6 +105,7 @@ The import took a few seconds (13s)
 No errors or warnings occurred
 The import was successful.
 </code></pre>
+<h4>The Content Model</h4>
 <ul>
 <li>
 <p>On Contentful we have 2 Content Types. <code>Brand</code> and <code>photoSets</code>.</p>
@@ -116,7 +120,7 @@ The import was successful.
 <p>Update the space id and access token in <a href=".env">.env</a> to use the api keys from your newly created space.</p>
 </li>
 </ul>
-<h4>Build the site</h4>
+<h3>Build the site</h3>
 <ul>
 <li>On the command line, navigate to your cloned repo and install your dependencies with <code>npm install</code>.</li>
 <li>Run Eleventy with <code>npx eleventy --serve</code>. We're using the <code>--serve</code> argument so eleventy will host the site for us. Navigiate to <a href="http://localhost:8080">localhost:8080</a> (or whatever port 11ty provides you if 8080 is already in use) to view the site.</li>
@@ -140,7 +144,7 @@ Watching…
  --------------------------------------
 [Browsersync] Serving files from: _site
 </code></pre>
-<h4>The GitHub part (optional)</h4>
+<h3>The GitHub part (optional)</h3>
 <p>Since we're using GitHub Actions, we'll be able to use the existing <a href="https://github.com/peaceiris/actions-gh-pages">GitHub Actions for GitHub Pages</a> repo. This repo contains a build script that will trigger when you make a <a href=".github/workflows/push_build.yml">push</a> and one that can be triggered <a href=".github/workflows/contentful_build.yml">via a webhook from Contentful</a>. This build will run eleventy and then publish your site to the <code>gh_pages</code> branch of your repo. You'll need to adjust or delete the final cname line (<code>cname: gallery.contentful.com</code>) in both build scripts or it'll cause a 404 with GitHub Pages.</p>
 <p><img src="images/github_pages_settings.png" alt="Screenshot of GitHub Secrets Page"></p>
 <p>On your forked repo you'll need to <a href="https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-create-ssh-deploy-key">add an SSH Deploy key so GitHub actions will be able to deploy to GitHub pages</a>. This should be a new SSH Key that you only use in this context. Don't reuse your existing GitHub SSH keys if you've got one. Lastly add the environment variables for Contentful in the GitHub Secrets page. Optionally you can activate Google Analytics tracking by including your <code>GOOGLE_TRACKING_ID</code> in the GitHub Secrets page.</p>
